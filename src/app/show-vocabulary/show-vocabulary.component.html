@@ -1,0 +1,17 @@
+<div class="container mt-5">
+  <div class="card text-center">
+    <div class="card-body">
+      <b><label style="float: left;">Score: {{score}}</label></b>
+      <button style="float: right;" (click)="navigateTo('welcome')">Back</button>
+      <h2 class="card-title">{{ vocabulary?.name }}</h2>
+      <br>
+      <div class="d-flex flex-column align-items-center">
+        <button *ngFor="let answer of answers" (click)="checkAnswer(answer.id)"
+          class="btn btn-primary mb-2 answer-button">
+          {{ answer.description }}
+        </button>
+      </div>
+      <p class="mt-4 h5 result-message" style="color: crimson;">{{ message }}</p>
+    </div>
+  </div>
+</div>

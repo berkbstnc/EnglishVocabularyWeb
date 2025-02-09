@@ -1,0 +1,22 @@
+<div class="login-container">
+    <h2>Login</h2>
+    <div *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div>
+            <label for="username">Username:</label>
+            <input id="username" formControlName="username" type="text" style="margin-left: 5px;" />
+        </div>
+
+        <div>
+            <label for="password">Password:</label>
+            <input id="password" formControlName="password" type="password" style="margin-left: 10px;" />
+        </div>
+        <div style="margin-left: 120px; margin-top: 5px; margin-bottom: 5px;">
+            <label type="button" (click)="navigateTo('resetpassword')"><u>Reset Password</u></label>
+        </div>
+        <div style="margin-left: 100px;">
+            <button type="submit" [disabled]="loading">Login</button>
+            <button type="button" (click)="navigateTo('register')">Register</button>
+        </div>
+    </form>
+</div>

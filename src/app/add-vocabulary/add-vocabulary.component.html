@@ -1,0 +1,45 @@
+<div class="container mt-5">
+  <div class="text-center">
+    <h2>Add New Vocabulary</h2>
+    <form [formGroup]="addVocabularyForm" (ngSubmit)="addVocabulary()" style="display: inline-block;">
+      <label *ngIf="statusFlag" [ngClass]="statusType === 'success' ? 'text-success' : 'text-error'">
+        {{ status }}
+      </label>
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <label for="vocabulary">Vocabulary:</label>
+            </td>
+            <td>
+              <input type="text" id="vocabulary" formControlName="vocabulary" name="vocabulary" required>
+              <a *ngIf="addVocabularyForm.get('vocabulary')?.invalid && (addVocabularyForm.get('vocabulary')?.touched || submitted)" style="color: red;">
+                *
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="answer">Answer:</label>
+            </td>
+            <td>
+              <input type="text" id="answer" formControlName="answer" name="answer" required>
+              <a *ngIf="addVocabularyForm.get('answer')?.invalid && (addVocabularyForm.get('answer')?.touched || submitted)" style="color: red;">
+                *
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <button type="submit" class="btn btn-primary">Add</button>
+              <button style="margin-left: 10px;" class="btn btn-primary" (click)="navigateTo('welcome')">Back</button>
+              <br><br>
+              <button style="margin-left: 10px;" class="btn btn-primary" (click)="navigateTo('list')">Show Vocabulary List</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+</div>

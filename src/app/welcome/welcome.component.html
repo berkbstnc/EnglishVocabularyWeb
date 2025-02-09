@@ -1,0 +1,12 @@
+<div class="welcome-container">
+    <h1>Welcome {{userName}}</h1>
+    <div class="banner-buttons">
+      <button *ngIf="isVisible" (click)="navigateTo('add')">Add New Vocabulary </button>
+      <button *ngIf="isVisible" (click)="navigateTo('users')">User List</button>
+      <button (click)="navigateTo('show')">Play Vocabulary Game</button>
+      <button (click)="navigateTo('scoreboard')">Scoreboard</button>
+      <button (click)="navigateTo('changepassword')">Change Password</button>
+      <button (click)="navigateTo('login')">Exit</button>
+    </div>
+  </div>
+  

@@ -1,0 +1,52 @@
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh; /* Ekranın ortasına daha iyi yerleşmesi için */
+  }
+  
+  .table-responsive {
+    width: 60%; /* Tablo genişliğini ayarlıyoruz */
+    max-width: 600px; /* Maksimum genişlik */
+  }
+  
+  table {
+    width: 100%; /* Tablo genişliğini kapsayıcıya göre ayarla */
+    text-align: center;
+  }
+  
+  th, td {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .loading-spinner {
+    text-align: center;
+    font-size: 20px;
+    margin: 20px;
+  }
+
+  .pagination {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .pagination button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .pagination button.active {
+    background-color: #0056b3;
+  }
+  
+  .pagination button:hover:not(.active) {
+    background-color: #0056b3;
+  }
+  
+  

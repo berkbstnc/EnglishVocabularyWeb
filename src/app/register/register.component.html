@@ -1,0 +1,34 @@
+<div class="register-container">
+    <h2>Register</h2>
+    <div *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</div>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div>
+            <label for="email">Mail:</label>
+            <input id="email" formControlName="email" type="text" style="margin-left: 45px;" />
+            <a *ngIf="(registerForm.get('email')?.hasError('required') && registerForm.get('email')?.touched) || 
+               (registerForm.get('email')?.hasError('required') && submitted)" style="color: red;">
+                *
+            </a>
+        </div>
+        <div>
+            <label for="username">Username:</label>
+            <input id="username" formControlName="username" type="text" style="margin-left: 5px;" />
+            <a *ngIf="(registerForm.get('username')?.hasError('required') && registerForm.get('username')?.touched) || 
+               (registerForm.get('username')?.hasError('required') && submitted)" style="color: red;">
+                *
+            </a>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input id="password" formControlName="password" type="password" style="margin-left: 10px;" />
+            <a *ngIf="(registerForm.get('password')?.hasError('required') && registerForm.get('password')?.touched) || 
+               (registerForm.get('password')?.hasError('required') && submitted)" style="color: red;">
+                *
+            </a>
+        </div>
+        <div style="margin-left: 100px;">
+            <button type="submit" [disabled]="loading">Send</button>
+            <button type="button" (click)="navigateTo('login')">Back</button>
+        </div>
+    </form>
+</div>

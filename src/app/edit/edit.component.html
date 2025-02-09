@@ -1,0 +1,35 @@
+<div class="container mt-5">
+    <div class="text-center">
+    <h2>Edit Vocabulary</h2>
+    <form (ngSubmit)="updateVocabulary()" style="display: inline-block;">
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <label for="vocabulary">Vocabulary:</label>
+            </td>
+            <td>
+              <input type="text" id="vocabulary" [(ngModel)]="vocabulary" name="vocabulary" required>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="answer">Answer:</label>
+            </td>
+            <td>
+              <input type="text" id="answer" [(ngModel)]="answer" name="answer" required>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <button type="submit" class="btn btn-primary">Update</button>
+              <button style="margin-left: 10px;" class="btn btn-primary" (click)="navigateTo('list')">Back</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+  </div>
+  

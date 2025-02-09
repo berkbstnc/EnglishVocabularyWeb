@@ -1,0 +1,55 @@
+<div class="fs-6">
+  <h2>Vocabulary List</h2>
+  <input type="text" placeholder="Search" id="searchBox" [(ngModel)]="searchBox" name="searchBox" (ngModelChange)="onSearchChange()">
+  <button class="btn btn-dark" style="float: right;" (click)="navigatePage('add')">Back</button>
+  <br>
+  
+  <div *ngIf="loading" class="loading-spinner">
+    <p>Loading...</p>
+  </div>
+
+  <div *ngIf="!loading && pagedVocabularyList.length > 0" class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Word</th>
+          <th>Answer</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vocabulary of pagedVocabularyList">
+          <td>{{ vocabulary.id }}</td>
+          <td>{{ vocabulary.word }}</td>
+          <td>{{ vocabulary.answer }}</td>
+          <td>
+            <button (click)="navigateTo('edit', vocabulary.id)">Edit</button>
+            <button style="margin-left: 10px" class="btn btn-danger" (click)="openPopup(vocabulary.id)">Delete</button>
+            <div *ngIf="showPopup" class="popup-overlay">
+              <div class="popup-container">
+                <h3>Are you sure you want to delete this item?</h3>
+                <div class="popup-actions">
+                  <button class="btn btn-confirm" (click)="deleteVocabulary()">Yes</button>
+                  <button class="btn btn-cancel" (click)="closePopup()">No</button>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="pagination">
+      <button *ngFor="let page of totalPages" 
+              [class.active]="currentPage === page" 
+              (click)="goToPage(page)">
+        {{ page }}
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="!loading && pagedVocabularyList.length === 0">
+    <p>No vocabulary available.</p>
+  </div>
+</div>
